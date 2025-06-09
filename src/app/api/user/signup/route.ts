@@ -15,12 +15,12 @@ export async function POST(request: NextRequest) {
 
         const {username, email, password} = reqBody
 
-        const userEmail = await User.findOne(email)
+        const userEmail = await User.findOne({email})
         if(userEmail){
             return NextResponse.json({ error: 'Email already exist'}, {status: 400})
         }
 
-        const uniqueUsername = await User.findOne(username)
+        const uniqueUsername = await User.findOne({username})
         if(uniqueUsername){
             return NextResponse.json({error: "Username already exist"}, {status: 400})
         }
@@ -48,6 +48,6 @@ export async function POST(request: NextRequest) {
         })
 
     } catch (error: any) {
-        return NextResponse.json({error: error.message }, {status:500})
+        return NextResponse.json({singupError: error.message }, {status:500})
     }
 }

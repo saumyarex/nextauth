@@ -29,7 +29,7 @@ export const sendEmail = async (email:string, emailType:string, userId:string) =
           port: 2525,
           auth: {
             user: "e5c27fe9732e96", // use env
-            pass: "****bb01" // use env
+            pass: "33ab81031cbb01" // use env
           }
         });
 
@@ -44,6 +44,7 @@ export const sendEmail = async (email:string, emailType:string, userId:string) =
         }
 
         const mailResponese = await transport.sendMail(mailOption)
+        console.log(mailResponese)
 
         return mailResponese;
     } catch (error:any) {
