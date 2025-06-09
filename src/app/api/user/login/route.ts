@@ -30,6 +30,25 @@ export async function GET(request: NextRequest) {
         })
         }
 
+        const tokenData = {
+            userId : user._id,
+            username : user.username
+        }
+
+        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {expiresIn: '1d'})
+
+        const response = NextResponse.json({
+            message: "Login success",
+            success: true
+        })
+
+        response.cookies.set("token", token, {
+            httpOnly: true,
+            secure: true
+        })
+
+        return response;
+
     } catch (error: any) {
         return NextResponse.json({
             error: error.message,
