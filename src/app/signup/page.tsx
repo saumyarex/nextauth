@@ -49,7 +49,11 @@ function SingupPage() {
       }, 3000);
     } catch (error: unknown) {
       console.log(error);
-      toast.error(error.message);
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     } finally {
       setloading(false);
     }
