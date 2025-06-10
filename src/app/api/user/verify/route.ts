@@ -9,7 +9,6 @@ export async function POST(request: NextRequest){
     try {
         const reqBody = await request.json()
 
-        console.log(reqBody)
         const {token} = reqBody
 
        const user =  await User.findOne({
@@ -24,7 +23,6 @@ export async function POST(request: NextRequest){
             })
         }
 
-        console.log(user)
         user.isVerified = true;
         user.verifyToken = undefined;
         user.verifyTokenExpiry = undefined;
