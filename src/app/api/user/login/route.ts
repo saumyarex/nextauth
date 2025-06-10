@@ -10,9 +10,9 @@ export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json()
 
-        console.log(reqBody)
+        //console.log(reqBody)
         const {email, username, password} = reqBody
-        console.log(username)
+        //console.log(username)
         const user = await User.findOne({
             $or : [
                 {email},

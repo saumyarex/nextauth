@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
         
         const id = await getDataFromToken(request)
 
-        console.log(id)
+        //console.log(id)
         
         const user =  await User.findById(id).select("-password")
 
