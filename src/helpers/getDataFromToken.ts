@@ -9,6 +9,7 @@ export const getDataFromToken = (request: NextRequest) => {
         if(!token){
             throw new Error("Token not found")
         }
+        
         const decodedToken: any = jwt.verify(token, process.env.TOKEN_SECRET!)
 
         return decodedToken.userId;

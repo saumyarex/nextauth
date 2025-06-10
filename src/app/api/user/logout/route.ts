@@ -1,24 +1,9 @@
-import {NextResponse, NextRequest } from "next/server"
-import jwt from "jsonwebtoken";
+import {NextResponse, } from "next/server"
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     
     try {
 
-        const reqBody = await request.json()
-
-        console.log(reqBody)
-        const {token} = reqBody;
-
-        console.log(token)
-        const tokenVerification = jwt.verify(token, process.env.TOKEN_SECRET!)
-
-        if(!tokenVerification){
-            return NextResponse.json({
-            error: "Invalid token",
-            status: 400
-        })
-        }
 
         const response = NextResponse.json({
             message: "Logout successfully",
@@ -30,6 +15,8 @@ export async function GET(request: NextRequest) {
             secure: true,
             expires: new Date(0)
         })
+
+        //response.cookies.delete("token")
 
 
         return response;

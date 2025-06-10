@@ -16,10 +16,11 @@ export const sendEmail = async (email:string, emailType:string, userId:string) =
                 }
             )
         }else if(emailType === "RESET"){
-            await User.findByIdAndUpdate(userId,
-                {
+            await User.findByIdAndUpdate(userId,{
+                $set:{
                     forgotPasswordToken : hashedToken,
                     forgotPasswordTokenExpiry : Date.now() + 3600000
+                }
                 }
             )
         }
