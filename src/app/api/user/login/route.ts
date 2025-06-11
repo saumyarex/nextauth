@@ -11,12 +11,12 @@ export async function POST(request: NextRequest) {
         const reqBody = await request.json()
 
         //console.log(reqBody)
-        const {email, username, password} = reqBody
+        const {username, password} = reqBody
         //console.log(username)
         const user = await User.findOne({
             $or : [
-                {email},
-                {username}
+                {email:username},
+                {username:username}
             ]
         })
 
