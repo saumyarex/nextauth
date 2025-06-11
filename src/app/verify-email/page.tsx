@@ -3,8 +3,10 @@ import axios from "axios";
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function VerifyEmailPage() {
+  const router = useRouter();
   const [token, setToken] = React.useState({
     token: "",
   });
@@ -25,6 +27,9 @@ export default function VerifyEmailPage() {
         toast.error(response.data.error);
       } else {
         toast.success("Email verified");
+        setTimeout(() => {
+          router.push("/login");
+        }, 2000);
       }
     } catch (error: unknown) {
       if (error instanceof Error) {

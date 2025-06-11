@@ -39,7 +39,7 @@ function LoginPage() {
       toast.success("Login success");
       setTimeout(() => {
         router.push("/profile");
-      }, 3000);
+      }, 2000);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         toast.error(error.response?.data.error);

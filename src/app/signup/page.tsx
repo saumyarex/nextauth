@@ -44,7 +44,7 @@ function SingupPage() {
       toast.success("Signup success");
       setTimeout(() => {
         router.push("/login");
-      }, 3000);
+      }, 2000);
     } catch (error: unknown) {
       console.log(error);
       if (axios.isAxiosError(error)) {
