@@ -1,5 +1,5 @@
 "use client";
-import React, { InputEventHandler } from "react";
+import React from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -35,15 +35,13 @@ function LoginPage() {
     try {
       e.preventDefault();
       setloading(true);
-      const response = await axios.post("/api/user/login", user);
+      await axios.post("/api/user/login", user);
 
-      console.log("Login success", response);
       toast.success("Login success");
       setTimeout(() => {
         router.push("/profile");
       }, 3000);
     } catch (error: unknown) {
-      console.log(error);
       if (error instanceof Error) {
         toast.error(error.message);
       } else {
