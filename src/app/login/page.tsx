@@ -65,7 +65,7 @@ function LoginPage() {
         <input
           name="username"
           type="text"
-          placeholder="Your username or email"
+          placeholder="username or email"
           id="username"
           value={user.username}
           onChange={(e) => handleChange(e)}
@@ -76,7 +76,7 @@ function LoginPage() {
         <input
           name="password"
           type="password"
-          placeholder="Your password"
+          placeholder="password"
           id="password"
           value={user.password}
           onChange={(e) => handleChange(e)}
