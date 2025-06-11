@@ -21,17 +21,15 @@ export async function POST(request: NextRequest) {
         })
 
         if(!user){
-            return NextResponse.json({
-            error: "User does not exist",
-            status: 400
-        })
+            return NextResponse.json({error: "User does not exist"},{status: 400})
         }
 
         const validPassword = await bcrypt.compare(password, user.password) 
 
         if(!validPassword){
             return NextResponse.json({
-            error: "Wrong password",
+            error: "Wrong password"
+        }, {
             status: 400
         })
         }
@@ -59,7 +57,6 @@ export async function POST(request: NextRequest) {
     } catch (error: any) {
         return NextResponse.json({
             error: error.message,
-            status: 500
-        })
+        },{status:500})
     }
 }

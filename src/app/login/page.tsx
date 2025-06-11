@@ -36,13 +36,14 @@ function LoginPage() {
       e.preventDefault();
       setloading(true);
       await axios.post("/api/user/login", user);
-
       toast.success("Login success");
       setTimeout(() => {
         router.push("/profile");
       }, 3000);
     } catch (error: unknown) {
-      if (error instanceof Error) {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data.error);
+      } else if (error instanceof Error) {
         toast.error(error.message);
       } else {
         toast.error("An unexpected error occurred");
