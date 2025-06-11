@@ -21,7 +21,6 @@ export default function VerifyEmailPage() {
       setloading(true);
       console.log(token);
       const response = await axios.post("/api/user/verify", token);
-      console.log(response);
       if (response.data.status !== 200) {
         toast.error(response.data.error);
       } else {

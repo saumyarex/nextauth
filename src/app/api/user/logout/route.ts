@@ -4,7 +4,6 @@ export async function GET() {
     
     try {
 
-
         const response = NextResponse.json({
             message: "Logout successfully",
             success: true,
@@ -17,13 +16,13 @@ export async function GET() {
             expires: new Date(0)
         })
 
-        response.cookies.delete("token")
+        //response.cookies.delete("token")
 
 
         return response;
         
         
-    } catch (error) {
+    } catch (error:any) {
         return NextResponse.json({
             error: error.message,
             status: 500
