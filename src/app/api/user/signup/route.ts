@@ -17,12 +17,13 @@ export async function POST(request: NextRequest) {
 
         const userEmail = await User.findOne({email})
         if(userEmail){
-            return NextResponse.json({ error: 'Email already exist'}, {status: 400})
+            //throw new Error('Email already exist')
+             return NextResponse.json({ error: 'Email already exist'}, {status: 400})
         }
 
         const uniqueUsername = await User.findOne({username})
         if(uniqueUsername){
-            return NextResponse.json({error: "Username already exist"}, {status: 400})
+            return NextResponse.json({error: "Username already exist"}, {status:400})
         }
 
         const salt = await bcrypt.genSalt(10)
@@ -48,6 +49,7 @@ export async function POST(request: NextRequest) {
         })
 
     } catch (error: any) {
-        return NextResponse.json({singupError: error.message }, {status:500})
+        console.log('signup error')
+        return NextResponse.json({error: error.message }, {status:500})
     }
 }

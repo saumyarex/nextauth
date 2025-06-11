@@ -40,16 +40,17 @@ function SingupPage() {
     try {
       e.preventDefault();
       setloading(true);
-      const response = await axios.post("/api/user/signup", user);
-
-      console.log("Signup success", response);
+      await axios.post("/api/user/signup", user);
       toast.success("Signup success");
       setTimeout(() => {
         router.push("/login");
       }, 3000);
     } catch (error: unknown) {
       console.log(error);
-      if (error instanceof Error) {
+      if (axios.isAxiosError(error)) {
+        console.log(error.response?.data.error);
+        toast.error(error.response?.data.error);
+      } else if (error instanceof Error) {
         toast.error(error.message);
       } else {
         toast.error("An unexpected error occurred");
