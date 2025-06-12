@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function LoginPage() {
   const router = useRouter();
@@ -89,6 +90,22 @@ function LoginPage() {
           Login
         </button>
       </form>
+      <div className="mt-3 flex flex-col items-center text-lg text-gray-400">
+        <p>
+          <Link
+            href={"/password-reset"}
+            className="text-center hover:text-gray-200"
+          >
+            Forgot Password
+          </Link>
+        </p>
+        <p>Don&#39;t have account</p>
+        <p>
+          <Link href={"/signup"} className="text-center hover:text-gray-200">
+            Sign Up
+          </Link>
+        </p>
+      </div>
       <Toaster position="bottom-center" />
     </div>
   );

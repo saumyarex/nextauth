@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function SingupPage() {
   const router = useRouter();
@@ -101,12 +102,21 @@ function SingupPage() {
         />
 
         <button
-          className="bg-blue-500 py-1 rounded hover:cursor-pointer hover:bg-blue-600 disabled:bg-blue-300 disabled:hover:cursor-default"
+          className="bg-blue-500 py-1 rounded hover:cursor-pointer hover:bg-blue-600 disabled:bg-blue-300 disabled:hover:cursor-default font-bold"
           disabled={buttonDisable}
         >
           SignUp
         </button>
       </form>
+      <div className="mt-3 flex flex-col items-center text-lg text-gray-400">
+        <p>Already have account</p>
+        <p>
+          <Link href={"/login"} className="text-center hover:text-gray-200">
+            Login
+          </Link>
+        </p>
+      </div>
+
       <Toaster position="bottom-center" />
     </div>
   );
