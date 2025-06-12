@@ -4,7 +4,9 @@ import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 function PasswordRestPage() {
-  const [user, setUser] = React.useState("");
+  const [user, setUser] = React.useState({
+    usernameOrEmail: "",
+  });
   const [loading, setloading] = React.useState(false);
 
   const resetPassword = async () => {
@@ -32,11 +34,11 @@ function PasswordRestPage() {
       </h1>
       <input
         id="user"
-        value={user}
+        value={user.usernameOrEmail}
         type="text"
         placeholder="username or email"
         className="py-2 px-5 bg-gray-700 rounded"
-        onChange={(e) => setUser(e.target.value)}
+        onChange={(e) => setUser({ usernameOrEmail: e.target.value })}
       />
       <p className="text-xl">Clilck below to reset your password</p>
       <button
