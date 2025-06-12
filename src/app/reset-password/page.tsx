@@ -31,7 +31,7 @@ function ResetPasswordPage() {
     try {
       e.preventDefault();
       setloading(true);
-      await axios.post("api/user/updatePassword", password);
+      await axios.patch("api/user/password", password);
       toast.success("Password changed");
       setTimeout(() => {
         router.push("/login");
