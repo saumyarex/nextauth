@@ -20,9 +20,18 @@ export async function PATCH (request: NextRequest) {
         },
             {
             $set: {
-                password: hashedPassword
+                password: hashedPassword,
+            },
+            $unset: {
+                forgotPasswordToken: "",
+                forgotPasswordTokenExpiry: ""
             }
+        }
+        ,{
+            new: true
         })
+
+        console.log(user)
 
         if(!user){
             return NextResponse.json({error: "Invalid token"},{status: 400})

@@ -61,7 +61,7 @@ export default function VerifyEmailPage() {
   return (
     <div className="flex flex-col gap-5 min-h-screen justify-center items-center">
       <h1 className="text-3xl font-medium">
-        {loading ? "Processing" : "Click below to get verify"}
+        {loading ? "Processing..." : "Click below to get verify"}
       </h1>
       <button
         className={`bg-blue-500 hover:bg-blue-600 py-2 px-7 rounded hover:cursor-pointer font-semibold ${
