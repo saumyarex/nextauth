@@ -3,17 +3,22 @@ import React from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 function ResetPasswordPage() {
   const [password, setPassword] = React.useState({
     password: "",
     confirmPassword: "",
+    resetToken: "",
   });
 
   const [error, setError] = React.useState("");
   const [loading, setloading] = React.useState(false);
 
   const router = useRouter();
+  const params = useSearchParams();
+
+  const extractedToken = params.get("token");
 
   function matchConfirmPassword() {
     if (!(password.password === password.confirmPassword)) {
@@ -28,10 +33,15 @@ function ResetPasswordPage() {
   }, [password]);
 
   const updatePassword = async (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    setloading(true);
+    const payload = {
+      ...password,
+      resetToken: extractedToken,
+    };
     try {
-      e.preventDefault();
-      setloading(true);
-      await axios.patch("api/user/password", password);
+      console.log(payload);
+      await axios.patch("api/user/password", payload);
       toast.success("Password changed");
       setTimeout(() => {
         router.push("/login");

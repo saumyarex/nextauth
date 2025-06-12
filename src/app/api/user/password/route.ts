@@ -1,6 +1,5 @@
 import User from "@/models/user";
 import bcrypt from "bcryptjs";
-import { useSearchParams } from "next/navigation";
 import { connectDB } from "@/dbConfig/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
 
