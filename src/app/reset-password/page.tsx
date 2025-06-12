@@ -9,7 +9,6 @@ function ResetPasswordPage() {
   const [password, setPassword] = React.useState({
     password: "",
     confirmPassword: "",
-    resetToken: "",
   });
 
   const [error, setError] = React.useState("");
@@ -40,7 +39,7 @@ function ResetPasswordPage() {
       resetToken: extractedToken,
     };
     try {
-      console.log(payload);
+      //console.log(payload);
       await axios.patch("api/user/password", payload);
       toast.success("Password changed");
       setTimeout(() => {

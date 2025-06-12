@@ -58,6 +58,11 @@ function SingupPage() {
       }
     } finally {
       setloading(false);
+      setUser({
+        email: "",
+        username: "",
+        password: "",
+      });
     }
   };
   return (

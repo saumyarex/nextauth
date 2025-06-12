@@ -51,6 +51,10 @@ function LoginPage() {
       }
     } finally {
       setloading(false);
+      setUser({
+        username: "",
+        password: "",
+      });
     }
   };
   return (

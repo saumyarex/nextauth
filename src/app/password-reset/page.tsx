@@ -2,8 +2,10 @@
 import axios from "axios";
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 function PasswordRestPage() {
+  const router = useRouter();
   const [user, setUser] = React.useState({
     usernameOrEmail: "",
   });
@@ -14,6 +16,10 @@ function PasswordRestPage() {
       setloading(true);
       await axios.post("api/user/reset-password", user);
       toast.success("Password reset link sent");
+      setUser({
+        usernameOrEmail: "",
+      });
+      router.push("/login");
     } catch (error: unknown) {
       console.log(error);
       if (axios.isAxiosError(error)) {
