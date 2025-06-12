@@ -4,6 +4,7 @@ import React from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { frontendErrors } from "@/helpers/frontendError";
 
 export default function VerifyEmailPage() {
   const router = useRouter();
@@ -14,14 +15,24 @@ export default function VerifyEmailPage() {
   const [verification, setVerification] = React.useState(true);
   const serchParams = useSearchParams();
 
+  const extractedToken: string = serchParams.get("token") || "";
   React.useEffect(() => {
-    const extractedToken: string = serchParams.get("token") || "";
     setToken({ token: extractedToken });
-  }, [serchParams]);
+  }, [extractedToken]);
 
   const requestNewToken = async () => {
     try {
-    } catch (error: unknown) {}
+      setloading(true);
+      const payload = {
+        prevToken: extractedToken,
+      };
+      await axios.patch("api/user/reverify", payload);
+      toast.success("Verification email sent");
+    } catch (error: unknown) {
+      frontendErrors(error);
+    } finally {
+      setloading(false);
+    }
   };
 
   const sendToken = async () => {

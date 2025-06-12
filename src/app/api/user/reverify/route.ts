@@ -8,6 +8,10 @@ connectDB();
 export async function PATCH(request: NextRequest) {
     try {
         const {prevToken} = await request.json();
+        
+        if(!prevToken){
+            return NextResponse.json({error: "Please send expired token"}, {status: 400})
+        }
 
         const user = await User.findOne({verifyToken: prevToken })
 
