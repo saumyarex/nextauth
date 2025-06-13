@@ -47,7 +47,7 @@ This is a Next.js project with primary focused on building user authentication s
 
 ![password reset ](./public/password-reset-page.jpg)
 
-### [Video Demo](https://youtu.be/ad75tToNwUk)
+### 🎥 [Video Demo](https://youtu.be/ad75tToNwUk)
 
 [![video demo](./public/login.jpg)](https://youtu.be/ad75tToNwUk)
 
