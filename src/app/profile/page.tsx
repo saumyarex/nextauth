@@ -9,6 +9,7 @@ function ProfilePage() {
   const [user, setUser] = React.useState({
     username: "",
     email: "",
+    id: "",
   });
 
   React.useEffect(() => {
@@ -22,6 +23,7 @@ function ProfilePage() {
           setUser({
             username: fectchedUserData.username,
             email: fectchedUserData.email,
+            id: fectchedUserData._id,
           });
         }
       } catch (error: unknown) {
@@ -58,6 +60,12 @@ function ProfilePage() {
       <h1 className="text-4xl font-semibold">User Profile</h1>
       <p className="text-2xl">Username : {user.username}</p>
       <p className="text-2xl">Email : {user.email}</p>
+      <p
+        className="text-xl text-pink-500 hover:text-pink-700 hover:cursor-pointer"
+        onClick={() => router.push(`/profile/${user.id}`)}
+      >
+        Click for User ID
+      </p>
       <button
         className="bg-blue-500 py-1 px-5 rounded font-semibold hover:bg-blue-600 hover:cursor-pointer"
         onClick={logout}
