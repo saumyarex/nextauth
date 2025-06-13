@@ -1,4 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔐 Authentication system - Build with Next.js
+
+## Description
+
+This is a Next.js project with primary focused on building user authentication services.
+
+## ✨ Features
+
+- Authentication
+- Password reset
+- Email verification
+
+## 🛠️ Built With
+
+- Next.js
+- React.js
+- Tailwind CSS
+- MongoDB
+
+## 📸 Screenshots
+
+### Signup page
+
+![signup](./public/signup.jpg)
+
+### Email verification page
+
+![email verification](./public/email-verification.jpg)
+
+### Login page
+
+![login](./public/login.jpg)
+
+### Profile page
+
+![profile](./public/profle-page.jpg)
+
+### Password reset request page
+
+![password reset request](./public/request-password-reset.jpg)
+
+### Password reset email
+
+![password reset email](./public/password-reset-email.jpg)
+
+### Password reset page
+
+![password reset ](./public/password-reset-page.jpg)
+
+### [Video Demo](https://youtu.be/ad75tToNwUk)
+
+[![video demo](./public/login.jpg)](https://youtu.be/ad75tToNwUk)
 
 ## Getting Started
 
@@ -20,17 +71,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🙋‍♂️ Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Saumya Nayak – [@saumyarex](https://github.com/saumyarex)
