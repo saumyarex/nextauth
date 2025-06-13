@@ -42,9 +42,7 @@ function ProfilePage() {
     try {
       await axios.get("api/user/logout");
       toast.success("Logout success");
-      setTimeout(() => {
-        router.push("/login");
-      }, 2000);
+      router.push("/login");
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         toast.error(error.response?.data.error);

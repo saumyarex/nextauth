@@ -44,9 +44,7 @@ export default function VerifyEmailPage() {
         setVerification(false);
       } else {
         toast.success("Email verified");
-        setTimeout(() => {
-          router.push("/login");
-        }, 2000);
+        router.push("/login");
       }
     } catch (error: unknown) {
       if (error instanceof Error) {

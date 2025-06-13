@@ -43,9 +43,7 @@ function SingupPage() {
       setloading(true);
       await axios.post("/api/user/signup", user);
       toast.success("Signup success");
-      setTimeout(() => {
-        router.push("/login");
-      }, 2000);
+      router.push("/login");
     } catch (error: unknown) {
       console.log(error);
       if (axios.isAxiosError(error)) {

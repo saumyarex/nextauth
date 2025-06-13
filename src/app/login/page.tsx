@@ -38,9 +38,7 @@ function LoginPage() {
       setloading(true);
       await axios.post("/api/user/login", user);
       toast.success("Login success");
-      setTimeout(() => {
-        router.push("/profile");
-      }, 2000);
+      router.push("/profile");
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         toast.error(error.response?.data.error);

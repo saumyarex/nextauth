@@ -42,9 +42,7 @@ function ResetPasswordPage() {
       //console.log(payload);
       await axios.patch("api/user/password", payload);
       toast.success("Password changed");
-      setTimeout(() => {
-        router.push("/login");
-      }, 2000);
+      router.push("/login");
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         toast.error(error.response?.data.error);
